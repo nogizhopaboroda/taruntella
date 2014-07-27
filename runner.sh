@@ -46,6 +46,11 @@ function __remote() {
 }
 
 
+function __uninstall() {
+	sed '/alias taruntella=/d' ~/.zshrc > ~/.tempshrc
+	mv ~/.tempshrc ~/.zshrc 
+	rm -rf ~/.taruntella
+}
 
 # ------------------------------------------------------------------------------
 # Parsing command line parameters
@@ -65,6 +70,10 @@ do
 			;;
 		"remote")
 			__remote $2 $3
+			exit 0
+			;;
+		"uninstall")
+			__uninstall
 			exit 0
 			;;	
 		*) 
