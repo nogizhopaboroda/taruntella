@@ -12,7 +12,7 @@ taruntella print_hello
 	
 ### Run tasks from gist/github/anywhere
 ```shell
-taruntella remote https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737c157b0ae4/raw/6ceddcc3aecd77af0b346e3e22f65df6c9997ccc/taruntella_example.sh test
+taruntella https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737c157b0ae4/raw/6ceddcc3aecd77af0b346e3e22f65df6c9997ccc/taruntella_example.sh test
 ```	
 
 ## Installation
