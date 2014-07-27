@@ -4,7 +4,7 @@
 # Defaults:
 # ------------------------------------------------------------------------------
 
-source $PWD/tasks #taskfile
+source $PWD/Ttasks #taskfile
 
 # ------------------------------------------------------------------------------
 # Private commands:
@@ -14,8 +14,10 @@ function __help {
 	echo "Usage: $0 [OPTION]"
 	echo 
 	echo "Options:"
+	echo "  <task_name>   - run task" 
 	echo "  help    - prints this text"
 	echo "  tasks   - print tasks" 
+	echo "  remote   - run task from remote source" 
 	echo 
 	exit 1
 }
@@ -37,7 +39,6 @@ function __available_tasks() {
 }
 
 function __remote() {
-	#https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737c157b0ae4/raw/b16c916b07dee8131cca5f9ff42bd42b7b4e7ad6/gistfile1.txt
 	curl -s $1 > .temp_tasks
 	source $PWD/.temp_tasks
 	rm .temp_tasks
