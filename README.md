@@ -20,7 +20,7 @@ taruntella remote https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737
 ### Bootstrap
 
 ```shell
-curl -L https://raw.githubusercontent.com/nogizhopaboroda/taruntella/master/runner.sh | bash
+curl -L https://raw.githubusercontent.com/nogizhopaboroda/taruntella/master/install.sh | bash
 ```
 
 ### From git repository
