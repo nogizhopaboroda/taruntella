@@ -34,4 +34,7 @@ git clone git@github.com:nogizhopaboroda/taruntella.git
 ```
 
 ## Uninstallation
+```shell
+taruntella uninstall
+```
 
