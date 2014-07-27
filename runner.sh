@@ -56,6 +56,7 @@ function __uninstall() {
 # Parsing command line parameters
 # ------------------------------------------------------------------------------
 
+shopt -s extglob
 while (( "$#" ))
 do
 	
@@ -68,10 +69,10 @@ do
 			__available_tasks
 			exit 0
 			;;
-		"remote")
-			__remote $2 $3
+		http?(s)://*)
+			__remote $1 $2
 			exit 0
-			;;
+			;;	
 		"uninstall")
 			__uninstall
 			exit 0
