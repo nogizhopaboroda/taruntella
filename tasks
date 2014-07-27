@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function get_content() {
+	content=$(curl -L https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737c157b0ae4/raw/b16c916b07dee8131cca5f9ff42bd42b7b4e7ad6/gistfile1.txt)
+	echo $content > bla
+	source $PWD/bla 
+}
+
+function from_gist() {
+	curl -s https://gist.githubusercontent.com/nogizhopaboroda/6a9e6b58737c157b0ae4/raw/b16c916b07dee8131cca5f9ff42bd42b7b4e7ad6/gistfile1.txt > bla
+	source $PWD/bla
+	rm bla
+	ok
+}
+
+function test() {
+	# $1 - passed argument. example: runner test foo - $1 == foo
+	echo $1
+}
