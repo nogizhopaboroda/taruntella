@@ -4,7 +4,10 @@
 # Defaults:
 # ------------------------------------------------------------------------------
 
-source $PWD/Ttasks #taskfile
+if [ -f $PWD/Ttasks ];
+then
+   source $PWD/Ttasks #taskfile
+fi
 
 # ------------------------------------------------------------------------------
 # Private commands:
