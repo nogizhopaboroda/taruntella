@@ -48,6 +48,33 @@ function __remote() {
 	$2
 }
 
+function aaa(){
+	# save current directory then cd to "$1"
+	  pushd "$1" >/dev/null
+	  # for each non-hidden (i.e. not starting with .) file/directory...
+	  for file in * ; do
+	    # print file/direcotry name if it really exists...
+	    test -e "$file" && echo "$2$file"
+	    # if directory, go down and list directory contents too
+	    test -d "$file" && my_ls "$file" "$2  "
+	  done
+	  # restore directory
+	  popd >/dev/null
+}
+
+last=""
+function __pipe() {
+	params_string="${@}"
+	params="${params_string#*[ ]}"
+	if [ "$2" == "" ]; then
+		echo $last_state
+		return 0
+	fi
+	
+	last_state=$($2 ${last_state})
+	__pipe $params
+}
+
 
 function __uninstall() {
 	sed '/alias taruntella=/d' ~/.zshrc > ~/.tempshrc
@@ -72,6 +99,10 @@ do
 			__available_tasks
 			exit 0
 			;;
+		"pipe")
+			__pipe $@
+			exit 0
+			;;	
 		http?(s)://*)
 			__remote $1 $2
 			exit 0
@@ -81,7 +112,8 @@ do
 			exit 0
 			;;	
 		*) 
-			__task_exists $1 && $1 $2 || __no_such_task $1
+			#__task_exists $1 && $1 $2 || __no_such_task $1
+			$1 $@
 			exit 1
 			;;
 	esac

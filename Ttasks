@@ -7,3 +7,19 @@ function hello() {
 function pass() {
 	echo "argument: ${1}"
 }
+
+
+
+
+function foo() {
+	ls
+}
+
+function bar() {
+	echo "$@" | sed s/sh/foobar/
+	
+}
+
+function baz() {
+	echo "hi, its baz, myarg: ${@}"
+}
